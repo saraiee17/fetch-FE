@@ -1,0 +1,39 @@
+@use '../../styles/colors.scss';
+
+
+.header{
+    color:white;
+    background-color: colors.$primary;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__logo{
+        max-width: 100px;
+        margin-left: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    &__div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 2rem;
+        margin-top: 1rem;
+        &--button{
+            font-size: 16px;
+            min-width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: colors.$ombre;
+            border-radius: 20px;
+            border: none;
+            height: 2.7em;
+            width: 50%;
+        }&--button:hover{
+            background-color: #1d0722;
+        }&--button:active{
+            background-color: colors.$secondary;
+        }
+    }
+}
