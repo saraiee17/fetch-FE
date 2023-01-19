@@ -25,15 +25,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: colors.$ombre;
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$ombre 0,  colors.$secondary 100%);
             border-radius: 20px;
             border: none;
             height: 2.7em;
             width: 50%;
         }&--button:hover{
-            background-color: #1d0722;
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$secondary 0,  colors.$ombre 100%);
         }&--button:active{
-            background-color: colors.$secondary;
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$primary 0,  colors.$ombre 100%);
         }
     }
 }
