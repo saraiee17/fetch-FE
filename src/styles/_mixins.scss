@@ -9,3 +9,18 @@
         @content;
     }
 }
+
+@mixin pagePositionAndStyle() {
+    background: #FFFFFF;
+    width: 91.4666%;
+    max-width: 1020px;
+    margin: auto;
+    margin-top: -3.2rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+    padding-top: 0.01px;
+
+    @include tablet {
+        margin-top: -6.5rem;
+    }
+}
