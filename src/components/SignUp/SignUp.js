@@ -11,12 +11,16 @@ function SignUp(){
         .then((response) => {
           const formData = response.data;
           console.log(formData)
+          const occupations= Object.values(formData)[0]
+          const states=Object.values(formData)[1].map(function(item){return item.name;})
+          console.log(occupations)
+          console.log(states)
         })
         .catch((err) => {
           console.log(err);
         });
 
-  
+
 
     return(
     <div className='signup'>
