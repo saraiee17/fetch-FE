@@ -1,0 +1,7 @@
+@use '../../styles/mixins';
+@use '../../styles/colors';
+
+
+.signup{
+    @include mixins.pagePositionAndStyle();
+}
