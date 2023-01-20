@@ -16,7 +16,9 @@ function SignUp(){
                 <label className="signup__label" htmlFor='last_name' >Last Name</label>
                 <input type="text" name="last_name" label="Last name" />
                 </div>
-                
+
+
+
                 <div className='signup__flex'>
                 <label className="signup__label" htmlFor='email' >Email</label>
                 <input type="text" name="email" label="Email" />
@@ -24,6 +26,16 @@ function SignUp(){
                 <input type="password" name="password" label="Password" />
                 </div>
                 </div>
+
+                <label className='signup__label' htmlFor="occupation-list">Occupation</label>
+                <select className='signup__category' id='occupation-list' name='category' placeholder='{occupationdata}'>
+                        <option value="Map">Map</option>
+                </select>
+
+                <label className='signup__label' htmlFor="state-list">State</label>
+                <select className='signup__category' id='state-list' name='category' placeholder='{statedata}'>
+                        <option value="Map">Map</option>
+                </select>
 
                 <button className="signup__button">Sign up</button>
 

@@ -4,4 +4,66 @@
 
 .signup{
     @include mixins.pagePositionAndStyle();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    &__form{
+        color:colors.$primary;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        box-shadow: 0 .125rem 1rem rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 0.5rem;
+        padding: 2rem 1.5rem;
+    }
+    &__flex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include mixins.tablet{
+            align-items: flex-start;
+        }
+    }
+    &__left{
+        @include mixins.tablet{
+            margin-right: 1rem;
+        }
+    }
+    &__tabletflex{
+        @include mixins.tablet{
+            display: flex;
+        }
+    }
+    &__title{
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-size: 1.5rem;
+        border-bottom: .3125rem solid colors.$secondary;
+        padding-bottom: 0.5rem;
+    }
+    &__button {
+        margin-top: 1rem;
+        background-color: colors.$secondary;
+        border: .0625rem solid colors.$secondary;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        font-size: inherit;
+        transition: background-color 0.15s;
+
+        &:hover {
+            background-color: colors.$primary;
+        }
+    }
+    &__message {
+        border-left: .3125rem solid #ddd;
+        padding: 0.75rem;
+        margin-top: 2rem;
+    }
 }
