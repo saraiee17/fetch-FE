@@ -1,9 +1,23 @@
 import './SignUp.scss'
-import {Link} from 'react-router-dom';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 
 function SignUp(){
+  
+
+      //Attempt to get request for formData to add to Inventory Info state.
+      axios
+        .get("https://frontend-take-home.fetchrewards.com/form")
+        .then((response) => {
+          const formData = response.data;
+          console.log(formData)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+  
+
     return(
     <div className='signup'>
              <form className="signup__form">
