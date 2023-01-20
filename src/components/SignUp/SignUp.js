@@ -3,23 +3,22 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 
 function SignUp(){
-  
+    const [formData, setFormData] = useState('');
 
-      //Attempt to get request for formData to add to Inventory Info state.
+      //Attempt to get request for formData to add to formInfo state.
+      useEffect(() => {
       axios
         .get("https://frontend-take-home.fetchrewards.com/form")
         .then((response) => {
-          const formData = response.data;
-          console.log(formData)
-          const occupations= Object.values(formData)[0]
-          const states=Object.values(formData)[1].map(function(item){return item.name;})
-          console.log(occupations)
-          console.log(states)
+          setFormData(response.data);
         })
         .catch((err) => {
           console.log(err);
         });
+    }, [])
 
+        const occupations= Object.values(formData)[0]
+        const states=Object.values(formData)[1].map(function(item){return item.name;})
 
 
     return(
@@ -36,7 +35,6 @@ function SignUp(){
                 </div>
 
 
-
                 <div className='signup__flex'>
                 <label className="signup__label" htmlFor='email' >Email</label>
                 <input type="text" name="email" label="Email" />
@@ -47,12 +45,16 @@ function SignUp(){
 
                 <label className='signup__label' htmlFor="occupation-list">Occupation</label>
                 <select className='signup__category' id='occupation-list' name='category' placeholder='{occupationdata}'>
-                        <option value="Map">Map</option>
+                        {occupations.map((occupation,index)=>{
+                     return <option key={index}className={occupation}>{occupation}</option>
+                    })}
                 </select>
 
                 <label className='signup__label' htmlFor="state-list">State</label>
                 <select className='signup__category' id='state-list' name='category' placeholder='{statedata}'>
-                        <option value="Map">Map</option>
+                        {states.map((states,index)=>{
+                     return <option key= {index}className={states}>{states}</option>
+                    })}
                 </select>
 
                 <button className="signup__button">Sign up</button>
