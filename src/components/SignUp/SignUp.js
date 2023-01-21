@@ -77,7 +77,7 @@ function SignUp(){
       });
     }
     };
-    console.log(formInfo)
+
  //Handle submit of form
  const addPerson = (e) => {
     e.preventDefault();
@@ -97,20 +97,24 @@ function SignUp(){
       return;
     }
 
-    console.log(error)
+    const name = `${formInfo.first_name} ${formInfo.last_name}`;
+    const data = { ...formInfo,name};
+    delete data.first_name;
+    delete data.last_name;
+ 
   //Then post the response in a form that the backend expects. 
     axios
-      .post("https://frontend-take-home.fetchrewards.com/form", formInfo)
+      .post("https://frontend-take-home.fetchrewards.com/form", data)
       .then((response) => {
-        // console.log(response);
-        setFormInfo({
-          first_name: false,
-          last_name: false,
-          email: false,
-          password: false,
-          occupation: false,
-          state: false,
-        });
+        console.log(response);
+        // setFormInfo({
+        //   first_name: false,
+        //   last_name: false,
+        //   email: false,
+        //   password: false,
+        //   occupation: false,
+        //   state: false,
+        // });
       })
       .catch((err) => {
         console.log(err);
@@ -143,13 +147,15 @@ function SignUp(){
 
                 <label className='signup__label' htmlFor="occupation-list">Occupation</label>
                 <select onBlur={handleTouch} onChange={handleChange} className={`signup__input ${errors.occupation ? "signup__input--invalid" : ""}`} value={formInfo.occupation}  id='occupation' name='occupation' placeholder='{occupationdata}'>
-                        {occupations.map((occupation,index)=>{
+                        <option>Please Select</option>
+                        {occupations.sort().map((occupation,index)=>{
                      return <option key={index}className={occupation}>{occupation}</option>
                     })}
                 </select>
 
                 <label className='signup__label' htmlFor="state-list">State</label>
                 <select onBlur={handleTouch} onChange={handleChange}  className={`signup__input ${errors.state ? "signup__input--invalid" : ""}`} value={formInfo.state}  id='state-list' name='state' placeholder='{statedata}'>
+                        <option>Please Select</option>
                         {states.map((states,index)=>{
                      return <option key= {index}className={states}>{states}</option>
                     })}
