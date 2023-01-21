@@ -6,6 +6,7 @@ function SignUp(){
     const [formData, setFormData] = useState('');
     const [states, setStates] = useState([]);
     const [occupations, setOccupations] = useState([]);
+    const [success, setSuccess] = useState(false);
 
       //Attempt to get request for formData to add to formInfo state.
       useEffect(() => {
@@ -33,7 +34,7 @@ function SignUp(){
         occupation: "",
         state: "",
     });
-  
+//   console.log(formInfo)
     //Initialize touched as state variable to track if a user has clicked in a form field
     const [touched, setTouched] = useState({
       first_name: false,
@@ -43,6 +44,7 @@ function SignUp(){
       occupation: false,
       state: false,
     });
+    console.log(touched)
   
     //Create error object to store errors in each input field field
     let errors = {};
@@ -107,17 +109,27 @@ function SignUp(){
       .post("https://frontend-take-home.fetchrewards.com/form", data)
       .then((response) => {
         console.log(response);
-        // setFormInfo({
-        //   first_name: false,
-        //   last_name: false,
-        //   email: false,
-        //   password: false,
-        //   occupation: false,
-        //   state: false,
-        // });
+        setFormInfo({
+            first_name: "",
+            last_name: "",
+            email: "",
+            password: "",
+            occupation: "",
+            state: "",
+        });
+        setTouched({
+            first_name: false,
+            last_name: false,
+            email: false,
+            password: false,
+            occupation: false,
+            state: false,
+        });
+        setSuccess(true);
       })
       .catch((err) => {
         console.log(err);
+        setSuccess(false);
       });
 }
 
@@ -165,6 +177,7 @@ function SignUp(){
 
 
                 {Object.values(errors).some((value) => value === true) && <div className="signup__message">Please Fill Out All Form Fields</div>}
+                {success&&<div className="signup__message">Signed up!</div>}
             </form>
 
     </div>
