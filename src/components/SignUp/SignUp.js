@@ -60,17 +60,68 @@ function SignUp(){
   
     //Track changes in input fields
     const handleChange = (event) => {
+    if (event.target.name === 'occupation') {
+    setFormInfo({
+        ...formInfo,
+        occupation: event.target.value,
+    });
+    } else if (event.target.name === 'state') {
+    setFormInfo({
+        ...formInfo,
+        state: event.target.value,
+    });
+    } else {
       setFormInfo({
         ...formInfo,
         [event.target.name]: event.target.value,
       });
-
+    }
     };
+    console.log(formInfo)
+ //Handle submit of form
+ const addPerson = (e) => {
+    e.preventDefault();
+    //initialize an error state to send user an alert
+    let error = false;
 
-console.log(errors)
+    //loop through form to make sure the key is NOT an empty string. Set error to true.
+    for (const key in formInfo) {
+      if (formInfo[key].length < 1) {
+        error = true;
+      }
+    }
+
+    //If error is true send user an alert on submit.
+    if (error === true) {
+      alert("Must fill out all form fields!");
+      return;
+    }
+
+    console.log(error)
+  //Then post the response in a form that the backend expects. 
+    axios
+      .post("https://frontend-take-home.fetchrewards.com/form", formInfo)
+      .then((response) => {
+        // console.log(response);
+        setFormInfo({
+          first_name: false,
+          last_name: false,
+          email: false,
+          password: false,
+          occupation: false,
+          state: false,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+}
+
+// console.log(formInfo)
+
     return(
     <div className='signup'>
-             <form className="signup__form">
+             <form className="signup__form" onSubmit={addPerson}>
                 <h1 className="signup__title">Sign up</h1>
 
                 <div className='signup__tabletflex'>
@@ -91,14 +142,14 @@ console.log(errors)
                 </div>
 
                 <label className='signup__label' htmlFor="occupation-list">Occupation</label>
-                <select onBlur={handleTouch} onChange={handleChange} className={`signup__input ${errors.occupation ? "signup__input--invalid" : ""}`} value={formInfo.occupation}  id='occupation-list' name='category' placeholder='{occupationdata}'>
+                <select onBlur={handleTouch} onChange={handleChange} className={`signup__input ${errors.occupation ? "signup__input--invalid" : ""}`} value={formInfo.occupation}  id='occupation' name='occupation' placeholder='{occupationdata}'>
                         {occupations.map((occupation,index)=>{
                      return <option key={index}className={occupation}>{occupation}</option>
                     })}
                 </select>
 
                 <label className='signup__label' htmlFor="state-list">State</label>
-                <select onBlur={handleTouch} onChange={handleChange}  className={`signup__input ${errors.state ? "signup__input--invalid" : ""}`} value={formInfo.state}  id='state-list' name='category' placeholder='{statedata}'>
+                <select onBlur={handleTouch} onChange={handleChange}  className={`signup__input ${errors.state ? "signup__input--invalid" : ""}`} value={formInfo.state}  id='state-list' name='state' placeholder='{statedata}'>
                         {states.map((states,index)=>{
                      return <option key= {index}className={states}>{states}</option>
                     })}
