@@ -1,0 +1,8 @@
+@use '../../styles/colors';
+
+.footer{
+    display: flex;
+    justify-content: center;
+    color:colors.$primary;
+    font-size: 0.5rem;
+}

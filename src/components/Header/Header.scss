@@ -15,7 +15,7 @@
         padding-bottom: 6rem;
     }
     &__logo{
-        max-width: 100px;
+        max-width: 6.25rem;
         margin-top: 1rem;
         @include mixins.tablet{
             margin-left: 2rem;
@@ -29,13 +29,13 @@
         justify-content: space-between;
         margin-right: 2rem;
         &--button{
-            font-size: 16px;
-            min-width: 100px;
+            font-size: 1rem;
+            min-width: 6.25rem;
             display: flex;
             justify-content: center;
             align-items: center;
             background-image: radial-gradient(100% 100% at 100% 0, colors.$ombre 0,  colors.$secondary 100%);
-            border-radius: 20px;
+            border-radius: 1.25rem;
             border: none;
             height: 2.7em;
             width: 50%;
