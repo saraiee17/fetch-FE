@@ -1,0 +1,48 @@
+@use '../../styles/colors.scss';
+@use '../../styles/mixins.scss';
+
+
+.header{
+    color:white;
+    background-color: colors.$primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+    @include mixins.tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 6rem;
+    }
+    &__logo{
+        max-width: 6.25rem;
+        margin-top: 1rem;
+        @include mixins.tablet{
+            margin-left: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+    &__div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 2rem;
+        &--button{
+            font-size: 1rem;
+            min-width: 6.25rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$ombre 0,  colors.$secondary 100%);
+            border-radius: 1.25rem;
+            border: none;
+            height: 2.7em;
+            width: 50%;
+        }&--button:hover{
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$secondary 0,  colors.$ombre 100%);
+        }&--button:active{
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$primary 0,  colors.$ombre 100%);
+        }
+    }
+}

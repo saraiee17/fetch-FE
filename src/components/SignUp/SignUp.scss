@@ -1,0 +1,84 @@
+@use '../../styles/mixins';
+@use '../../styles/colors';
+
+
+.signup{
+    @include mixins.pagePositionAndStyle();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    &__form{
+        color:colors.$primary;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        box-shadow: 0 .125rem 1rem rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 0.5rem;
+        padding: 2rem 1.5rem;
+    }
+    &__input{
+        border-radius: 1.25rem;
+        border: 0.063rem solid colors.$primary;
+        height: 1.5rem;
+        &--invalid {
+            border: 0.063rem solid colors.$tertiary;
+        }
+    }
+    &__flex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include mixins.tablet{
+            align-items: flex-start;
+        }
+    }
+    &__left{
+        @include mixins.tablet{
+            margin-right: 1rem;
+        }
+    }
+    &__tabletflex{
+        @include mixins.tablet{
+            display: flex;
+        }
+    }
+    &__title{
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-size: 1.5rem;
+        border-bottom: .3125rem solid colors.$secondary;
+        padding-bottom: 0.5rem;
+    }
+    &__button{
+        font-size: 1rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: radial-gradient(100% 100% at 100% 0, colors.$ombre 0,  colors.$secondary 100%);
+        border-radius: 1.25rem;
+        border: none;
+        height: 2.7em;
+        width: 25%;
+        color: white;
+        font-weight: bold;
+        &:hover {
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$secondary 0,  colors.$ombre 100%);
+        }
+        &:active{
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$primary 0,  colors.$ombre 100%);
+        }
+    }
+    &__message {
+        border-left: .3125rem solid #ddd;
+        padding: 0.75rem;
+        margin-top: 2rem;
+    }
+
+}

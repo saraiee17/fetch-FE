@@ -1,12 +1,21 @@
 import './App.scss';
-import SignUp from './components/SignUp/SignUp';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from './components/Header/Header.js';
+import SignUp from './components/SignUp/SignUp.js';
+import Footer from './components/Footer/Footer.js';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Fetch</h1>
-      </header>
+        <BrowserRouter>
+          <Header/>
+          <Routes>
+            <Route path="/" element={<SignUp/>} />
+          </Routes>
+          <Footer/>
+        </BrowserRouter>
     </div>
   );
 }
