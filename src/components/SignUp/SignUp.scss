@@ -67,6 +67,7 @@
         height: 2.7em;
         width: 25%;
         color: white;
+        font-weight: bold;
         &:hover {
             background-image: radial-gradient(100% 100% at 100% 0, colors.$secondary 0,  colors.$ombre 100%);
         }
