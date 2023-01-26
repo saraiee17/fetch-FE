@@ -1,8 +1,12 @@
 @use '../../styles/colors';
+@use '../../styles/mixins';
 
 .footer{
     display: flex;
     justify-content: center;
     color:colors.$primary;
     font-size: 0.5rem;
+    @include mixins.tablet{
+        margin-top: 4rem;
+    }
 }
