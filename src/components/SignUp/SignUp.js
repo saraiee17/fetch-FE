@@ -46,9 +46,10 @@ function SignUp(){
     });
     console.log(touched)
   
+    
     //Create error object to store errors in each input field field
     let errors = {};
-  
+    
     //loop through formInfo. Set error at the given key to true
     //IF there is an empty string in formInfo at the given key but it has been touched
     for (const key in formInfo) {
@@ -95,7 +96,6 @@ function SignUp(){
 
     //If error is true send user an alert on submit.
     if (error === true) {
-      alert("Must fill out all form fields!");
       return;
     }
 
@@ -133,7 +133,14 @@ function SignUp(){
       });
 }
 
-// console.log(formInfo)
+const checkErrors = () => {
+  if (Object.values(errors).some((value) => value === true)) {
+      setSuccess(false);
+  }
+}
+useEffect(() => {
+  checkErrors();
+}, [errors]);
 
     return(
     <div className='signup'>
@@ -174,7 +181,6 @@ function SignUp(){
                 </select>
 
                 <button className="signup__button">Sign up</button>
-
 
                 {Object.values(errors).some((value) => value === true) && <div className="signup__message">Please Fill Out All Form Fields</div>}
                 {success&&<div className="signup__message">Signed up!</div>}
