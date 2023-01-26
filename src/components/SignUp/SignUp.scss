@@ -55,18 +55,23 @@
         border-bottom: .3125rem solid colors.$secondary;
         padding-bottom: 0.5rem;
     }
-    &__button {
+    &__button{
+        font-size: 16px;
         margin-top: 1rem;
-        background-color: colors.$secondary;
-        border: .0625rem solid colors.$secondary;
-        color: #fff;
-        border-radius: 0.5rem;
-        padding: 0.5rem;
-        font-size: inherit;
-        transition: background-color 0.15s;
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: radial-gradient(100% 100% at 100% 0, colors.$ombre 0,  colors.$secondary 100%);
+        border-radius: 20px;
+        border: none;
+        height: 2.7em;
+        width: 25%;
+        color: white;
         &:hover {
-            background-color: colors.$primary;
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$secondary 0,  colors.$ombre 100%);
+        }
+        &:active{
+            background-image: radial-gradient(100% 100% at 100% 0, colors.$primary 0,  colors.$ombre 100%);
         }
     }
     &__message {
