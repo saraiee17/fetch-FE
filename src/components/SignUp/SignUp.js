@@ -44,7 +44,7 @@ function SignUp(){
       occupation: false,
       state: false,
     });
-    console.log(touched)
+
   
     
     //Create error object to store errors in each input field field

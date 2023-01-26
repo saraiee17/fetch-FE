@@ -23,10 +23,10 @@
     }
     &__input{
         border-radius: 1.25rem;
-        border: 1px solid colors.$primary;
+        border: 0.063rem solid colors.$primary;
         height: 1.5rem;
         &--invalid {
-            border: 1px solid colors.$tertiary;
+            border: 0.063rem solid colors.$tertiary;
         }
     }
     &__flex{
@@ -56,17 +56,18 @@
         padding-bottom: 0.5rem;
     }
     &__button{
-        font-size: 16px;
+        font-size: 1rem;
         margin-top: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
         background-image: radial-gradient(100% 100% at 100% 0, colors.$ombre 0,  colors.$secondary 100%);
-        border-radius: 20px;
+        border-radius: 1.25rem;
         border: none;
         height: 2.7em;
         width: 25%;
         color: white;
+        font-weight: bold;
         &:hover {
             background-image: radial-gradient(100% 100% at 100% 0, colors.$secondary 0,  colors.$ombre 100%);
         }
